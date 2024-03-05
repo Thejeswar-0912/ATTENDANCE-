@@ -29,6 +29,9 @@ function calculateAttendance() {
     const resultElement = document.getElementById('result');
     resultElement.innerHTML = `Attendance Percentage: ${attendancePercentage.toFixed(2)}%`;
 
+    const classesNeeded = Math.ceil(((0.8 * totalClasses) - attendedClasses) / 0.2);
+    resultElement.innerHTML += `<br>Classes needed for 80% attendance: ${classesNeeded}`;
+
     if (attendancePercentage < 80) {
         document.body.classList.add('low-attendance');
         resultElement.innerHTML += '<br>Your attendance is below 80%. Please improve.';
